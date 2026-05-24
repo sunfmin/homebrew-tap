@@ -1,27 +1,27 @@
 class Md2json < Formula
   desc "Markdown to JSON CLI (CommonMark + GFM via goldmark, mdast-style envelope)"
   homepage "https://github.com/sunfmin/md2json"
-  version "0.1.0"
+  version "0.2.0"
 
   on_macos do
     on_intel do
-      url "https://github.com/sunfmin/md2json/releases/download/v0.1.0/md2json-darwin-amd64"
-      sha256 "55f5451b54a0392ba5f868429ff125881119036455b8004bb5f9b49ec9eba7b5"
+      url "https://github.com/sunfmin/md2json/releases/download/v0.2.0/md2json-darwin-amd64"
+      sha256 "5e5e38035111e53727c65d6b04fc5974c27aa377ff3682dcd20f3dfdf9516b63"
     end
     on_arm do
-      url "https://github.com/sunfmin/md2json/releases/download/v0.1.0/md2json-darwin-arm64"
-      sha256 "480e67bd89475c39229329428c27f5c2b7e3ab862dec992a3c8b69bf67f4c5e4"
+      url "https://github.com/sunfmin/md2json/releases/download/v0.2.0/md2json-darwin-arm64"
+      sha256 "4c0ad77170c5e81dabe45100dd36b66fdc851c6e5bbe4149e44b9cfa0be6101e"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/sunfmin/md2json/releases/download/v0.1.0/md2json-linux-amd64"
-      sha256 "7da961dd8b966f93cebeb5cad6d89f3e2179b849424911fca7a599741dc48f5f"
+      url "https://github.com/sunfmin/md2json/releases/download/v0.2.0/md2json-linux-amd64"
+      sha256 "14b6ff47fb94edcf9c89e7e0d758d3b7f97191b9e61ae2f5fe3e4c8d372d6c80"
     end
     on_arm do
-      url "https://github.com/sunfmin/md2json/releases/download/v0.1.0/md2json-linux-arm64"
-      sha256 "6f1b2411ac930d9db4e9f7cae2f9437eee80dacbe246f5ad6067f9112f056a6e"
+      url "https://github.com/sunfmin/md2json/releases/download/v0.2.0/md2json-linux-arm64"
+      sha256 "78c015e7ead7d12368624ddc0608712bbe8a7a4b05c6851af0ba8965bf6e065f"
     end
   end
 
