@@ -1,8 +1,8 @@
 class ClaudeStallGuard < Formula
-  desc "Stall watchdog for Claude Code: turn interactive-prompt hangs into fast failures"
+  desc "Stall watchdog for Claude Code: kill genuine hangs fast, with blocked-at evidence"
   homepage "https://github.com/sunfmin/claude-stall-guard"
-  url "https://github.com/sunfmin/claude-stall-guard/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "3759fdce4958bb9e415ed9fde2aeecb68345777676fa1de848a29f01baddbe1b"
+  url "https://github.com/sunfmin/claude-stall-guard/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "53eee1fb17bf732d07298928f8f537ad1010bfac86e9e95dfd8ef8a194f34dc9"
   license "MIT"
 
   def install
