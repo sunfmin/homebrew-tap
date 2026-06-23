@@ -1,6 +1,6 @@
 cask "quickrun" do
-  version "0.5.2"
-  sha256 "da0e01e6ff2d0ff37fd9376075bb25426567e0b0a275d32728b60b7e874b6436"
+  version "0.5.3"
+  sha256 "e41c249e1068eb1a5df5586f63d2a353dba1659ac4ce388e62cada529367d8af"
 
   url "https://github.com/sunfmin/quickrun/releases/download/v#{version}/QuickRun-#{version}.dmg"
   name "QuickRun"
