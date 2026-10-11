@@ -1,9 +1,9 @@
 class Calcgrid < Formula
   desc "Spreadsheets for AI agents: read, edit and check .numb and .xlsx files"
   homepage "https://github.com/sunfmin/calcgrid-cli"
-  url "https://github.com/sunfmin/calcgrid-cli/releases/download/v0.1.0/calcgrid-0.1.0-macos-arm64.zip"
-  version "0.1.0"
-  sha256 "b71da5ae1c87717f82ca8615086daf21480fbea4fdb2727e7b00a0fa51960b8c"
+  url "https://github.com/sunfmin/calcgrid-cli/releases/download/v0.2.0/calcgrid-0.2.0-macos-arm64.zip"
+  version "0.2.0"
+  sha256 "1bfdc7020f9d9b7020e65e5dbdbcaa5e51e73b82ebf32d7b973dd15c150eae14"
 
   depends_on arch: :arm64
   depends_on macos: :sonoma
