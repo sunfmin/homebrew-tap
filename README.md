@@ -19,5 +19,6 @@ brew install md2json
 
 | Formula | Description |
 | --- | --- |
+| [`afkconvoy`](Formula/afkconvoy.rb) | Fleet of AFK coding agents that works a GitHub backlog. Source: [sunfmin/afkconvoy](https://github.com/sunfmin/afkconvoy). |
 | [`claude-stall-guard`](Formula/claude-stall-guard.rb) | Stall watchdog for Claude Code: turn interactive-prompt hangs into fast failures. Source: [sunfmin/claude-stall-guard](https://github.com/sunfmin/claude-stall-guard). |
 | [`md2json`](Formula/md2json.rb) | Markdown to JSON CLI (CommonMark + GFM via goldmark, mdast-style envelope). Source: [sunfmin/md2json](https://github.com/sunfmin/md2json). |
