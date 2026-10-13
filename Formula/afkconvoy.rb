@@ -8,11 +8,11 @@ class Afkconvoy < Formula
   depends_on :macos
 
   on_arm do
-    url "https://github.com/sunfmin/afkconvoy/releases/download/v0.2.1/afkconvoy-0.2.1-macos-arm64.tar.gz"
+    url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.2.1/afkconvoy-0.2.1-macos-arm64.tar.gz"
     sha256 "a0566e96e4c571b5fb2b3936421d71b29934ef541dc61cefb88a17125d265a6e"
   end
   on_intel do
-    url "https://github.com/sunfmin/afkconvoy/releases/download/v0.2.1/afkconvoy-0.2.1-macos-x86_64.tar.gz"
+    url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.2.1/afkconvoy-0.2.1-macos-x86_64.tar.gz"
     sha256 "100d359829ee4d10eaf6ac4bf98fc8b27aea7ca0b32b15f26317f13383666236"
   end
 
