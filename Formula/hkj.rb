@@ -1,28 +1,28 @@
 class Hkj < Formula
   desc "Loads a Chanjet 好会计 backup into MySQL and answers questions about the books"
   homepage "https://github.com/sunfmin/hkj"
-  version "0.1.1"
+  version "0.1.2"
 
   uses_from_macos "curl"
 
   on_macos do
     on_arm do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/hkj-v0.1.1/hkj-0.1.1-macos-arm64.tar.gz"
-      sha256 "bbc3f959a7d41c687334219c0f175071583044a4bc11924b83e08db72a9fec93"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/hkj-v0.1.2/hkj-0.1.2-macos-arm64.tar.gz"
+      sha256 "5516cccd62dc969e9487a686a68e08df3f6550ff47da860c7460d79c2404f0da"
     end
     on_intel do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/hkj-v0.1.1/hkj-0.1.1-macos-x86_64.tar.gz"
-      sha256 "1e8843cb30987e65cc87de810dd138fa467085397b2594368cdd10f5945639e3"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/hkj-v0.1.2/hkj-0.1.2-macos-x86_64.tar.gz"
+      sha256 "1e5eb2a74393264e1624a10889ee9fecc840f952ad0c2d3539b51ffd4194ba50"
     end
   end
   on_linux do
     on_arm do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/hkj-v0.1.1/hkj-0.1.1-linux-arm64.tar.gz"
-      sha256 "e728a2e12ca62368b2758414c94a6fae4059037e30a270f99978a348e745cb05"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/hkj-v0.1.2/hkj-0.1.2-linux-arm64.tar.gz"
+      sha256 "aaa531d6db71f1240b1939bd13adb8912d5391571db4ed08984f81c63dc5e0c5"
     end
     on_intel do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/hkj-v0.1.1/hkj-0.1.1-linux-x86_64.tar.gz"
-      sha256 "459d2a4c85fe807eff9fc693baeeb5ca11cb76cbd590388c0eb1aa8afc83d669"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/hkj-v0.1.2/hkj-0.1.2-linux-x86_64.tar.gz"
+      sha256 "1b89f4dc7cf2d7669cbf333b7c03670b3e12c77702cd44ac947205309bc986ad"
     end
   end
 
