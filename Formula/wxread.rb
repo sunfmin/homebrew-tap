@@ -8,11 +8,11 @@ class Wxread < Formula
 
   on_arm do
     url "https://github.com/sunfmin/wxread/releases/download/v0.1.1/wxread-0.1.1-macos-arm64.tar.gz"
-    sha256 "0c7510cc112e7409cf62f545f0064a50e0a1afae368c9b936d88ca178b083bc3"
+    sha256 "8abe6806da707ef8e3122703997404ff5bb876abad8507baa76b5e59ebf22005"
   end
   on_intel do
     url "https://github.com/sunfmin/wxread/releases/download/v0.1.1/wxread-0.1.1-macos-x86_64.tar.gz"
-    sha256 "7cc3a9c029c6cfcbda03bb445622db0d1b898fc29e52b8fc54064c29b2fc89ea"
+    sha256 "55cc5fc068ff8a8cbb962dcf516f4f71a7e1d84def4a8abbf51415db747e78c4"
   end
 
   def install
