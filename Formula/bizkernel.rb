@@ -6,11 +6,11 @@ class Bizkernel < Formula
   depends_on :macos
 
   on_arm do
-    url "/bizkernel-0.1.0-macos-arm64.tar.gz"
+    url "https://github.com/sunfmin/bizkernel-releases/releases/download/v0.1.0/bizkernel-0.1.0-macos-arm64.tar.gz"
     sha256 "3b096d6a49257e0a6b9ac23f34132b1e51596e1da8da38c5b710e6423cb38305"
   end
   on_intel do
-    url "/bizkernel-0.1.0-macos-x86_64.tar.gz"
+    url "https://github.com/sunfmin/bizkernel-releases/releases/download/v0.1.0/bizkernel-0.1.0-macos-x86_64.tar.gz"
     sha256 "f52dbf0da0470a1799ecd91fbf153ae47a3c2a12dd17463c2cef106cd1e42a7e"
   end
 
