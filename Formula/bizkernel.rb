@@ -1,17 +1,17 @@
 class Bizkernel < Formula
   desc "Business kernel: bk, bk-server and the workers that run on your machine"
   homepage "https://github.com/sunfmin/bizkernel-releases"
-  version "0.6.0"
+  version "0.6.1"
 
   depends_on :macos
 
   on_arm do
-    url "https://github.com/sunfmin/bizkernel-releases/releases/download/v0.6.0/bizkernel-0.6.0-macos-arm64.tar.gz"
-    sha256 "9c3b5bd5deb3752785b1b515085ea582ba9d65902b67d7136ad17b9f42a99a49"
+    url "https://github.com/sunfmin/bizkernel-releases/releases/download/v0.6.1/bizkernel-0.6.1-macos-arm64.tar.gz"
+    sha256 "8991c66d85770507dfc29651e79ba6dccbe76a1ec78df705378bda93a4a7d305"
   end
   on_intel do
-    url "https://github.com/sunfmin/bizkernel-releases/releases/download/v0.6.0/bizkernel-0.6.0-macos-x86_64.tar.gz"
-    sha256 "7fc23cbf91a5114eb728efc3d9aa8848b3cf71956ded8dfb1bfa247ba1d57654"
+    url "https://github.com/sunfmin/bizkernel-releases/releases/download/v0.6.1/bizkernel-0.6.1-macos-x86_64.tar.gz"
+    sha256 "205e5c677941051b6b0f7062443738d40ea19f186b682773ef662823865b8524"
   end
 
   def install
@@ -30,12 +30,12 @@ class Bizkernel < Formula
   end
 
   test do
-    assert_equal "bk 0.6.0", shell_output("#{bin}/bk --version").strip
-    assert_equal "bk-server 0.6.0", shell_output("#{bin}/bk-server --version").strip
-    assert_equal "file-intake 0.6.0", shell_output("#{bin}/file-intake --version").strip
-    assert_equal "im-transcribe 0.6.0", shell_output("#{bin}/im-transcribe --version").strip
+    assert_equal "bk 0.6.1", shell_output("#{bin}/bk --version").strip
+    assert_equal "bk-server 0.6.1", shell_output("#{bin}/bk-server --version").strip
+    assert_equal "file-intake 0.6.1", shell_output("#{bin}/file-intake --version").strip
+    assert_equal "im-transcribe 0.6.1", shell_output("#{bin}/im-transcribe --version").strip
     assert_equal "report-render 0.2.1", shell_output("#{bin}/report-render --version").strip
     assert_equal "voice-transcode 0.2.1", shell_output("#{bin}/voice-transcode --version").strip
-    assert_equal "wechat-intake 0.6.0", shell_output("#{bin}/wechat-intake --version").strip
+    assert_equal "wechat-intake 0.6.1", shell_output("#{bin}/wechat-intake --version").strip
   end
 end
