@@ -1,19 +1,19 @@
 class Diskreap < Formula
   desc "Agent CLI that frees disk space by Rules kept in a private gist, safely"
   homepage "https://github.com/sunfmin/diskreap"
-  version "0.5.0"
+  version "0.6.0"
   license "Apache-2.0"
 
   depends_on :macos
   depends_on "gh"
 
   on_arm do
-    url "https://github.com/sunfmin/diskreap/releases/download/v0.5.0/diskreap-0.5.0-macos-arm64.tar.gz"
-    sha256 "6571df7aa807a6a81ec2b6e713c69eb4ef3a1b4d0a497879592bf1662e00b4f9"
+    url "https://github.com/sunfmin/diskreap/releases/download/v0.6.0/diskreap-0.6.0-macos-arm64.tar.gz"
+    sha256 "ba8b0148d2bafcfd0e4c90dadbc418e042f403a0783245b1a4ae1715bbf672a9"
   end
   on_intel do
-    url "https://github.com/sunfmin/diskreap/releases/download/v0.5.0/diskreap-0.5.0-macos-x86_64.tar.gz"
-    sha256 "6d90327586e4718ad2272ee5ff3313abd94a00af4cc3e46664d1098f55cfb688"
+    url "https://github.com/sunfmin/diskreap/releases/download/v0.6.0/diskreap-0.6.0-macos-x86_64.tar.gz"
+    sha256 "1628334df843f8992e7b106129c0380768c9fbbab504c81894af7c2125237ea7"
   end
 
   def install
