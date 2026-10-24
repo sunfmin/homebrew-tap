@@ -1,18 +1,18 @@
 class Wxread < Formula
   desc "Agent CLI that reads WeChat for Mac 4.x directly"
   homepage "https://github.com/sunfmin/wxread"
-  version "0.1.6"
+  version "0.1.7"
   license "Apache-2.0"
 
   depends_on :macos
 
   on_arm do
-    url "https://github.com/sunfmin/wxread/releases/download/v0.1.6/wxread-0.1.6-macos-arm64.tar.gz"
-    sha256 "1dfa12817906d9824b002f6de8132614b1c744824945295cbac01323e69923d5"
+    url "https://github.com/sunfmin/wxread/releases/download/v0.1.7/wxread-0.1.7-macos-arm64.tar.gz"
+    sha256 "63c7c938b16f37942ff5d8c0cd630f9778640eb4e84b35e44f846d6f93bf04ea"
   end
   on_intel do
-    url "https://github.com/sunfmin/wxread/releases/download/v0.1.6/wxread-0.1.6-macos-x86_64.tar.gz"
-    sha256 "3219e988e33b9e5127590dcfa8e0320d13ec2119090d0944787115b5a2824591"
+    url "https://github.com/sunfmin/wxread/releases/download/v0.1.7/wxread-0.1.7-macos-x86_64.tar.gz"
+    sha256 "b012b941b5da3941095db2a330e8f21594767453bee6651ebb2d3efcc278c4a3"
   end
 
   def install
