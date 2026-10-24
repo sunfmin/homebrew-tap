@@ -1,7 +1,7 @@
 class Inspectvideo < Formula
   desc "Turns an online video into text a model can fully understand"
   homepage "https://github.com/sunfmin/inspectvideo"
-  version "0.2.1"
+  version "0.2.2"
 
   depends_on "ffmpeg"
   depends_on "llama.cpp"
@@ -10,22 +10,22 @@ class Inspectvideo < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/inspectvideo-v0.2.1/inspectvideo-0.2.1-macos-arm64.tar.gz"
-      sha256 "ac16473b51126ee3f7ba63207e2e7629af75eb96822c1d58b44ced8b96aaeffa"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/inspectvideo-v0.2.2/inspectvideo-0.2.2-macos-arm64.tar.gz"
+      sha256 "b2f9b858b6b390a174b25e5a4148a755db14ddffa71050d355f7bad6a9d1fb6d"
     end
     on_intel do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/inspectvideo-v0.2.1/inspectvideo-0.2.1-macos-x86_64.tar.gz"
-      sha256 "f4f38b056d7535b54681d60af861268a63a24234aae132eccb52310842af2f34"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/inspectvideo-v0.2.2/inspectvideo-0.2.2-macos-x86_64.tar.gz"
+      sha256 "9670795f58905706dfe56469cf1786842914065b0b8835ec18e181a2f53e09ba"
     end
   end
   on_linux do
     on_arm do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/inspectvideo-v0.2.1/inspectvideo-0.2.1-linux-arm64.tar.gz"
-      sha256 "e2ca03981bea730b7e15c3980a97c1b3177a9c15587732a8e0672c7ca8d7bb92"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/inspectvideo-v0.2.2/inspectvideo-0.2.2-linux-arm64.tar.gz"
+      sha256 "24ae453a7c31cbe06bb749d4fe797e5f8f8e3e8cdf38809ab6dfb1bf5fa34160"
     end
     on_intel do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/inspectvideo-v0.2.1/inspectvideo-0.2.1-linux-x86_64.tar.gz"
-      sha256 "6a9418d225a44490afaf49756d5607f923125b625ebdf43d5eee2f5016d8573a"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/inspectvideo-v0.2.2/inspectvideo-0.2.2-linux-x86_64.tar.gz"
+      sha256 "feb03123f2ec9f73365fe42af34996488683a2c3acfdc446196ac704369f02d5"
     end
   end
 
