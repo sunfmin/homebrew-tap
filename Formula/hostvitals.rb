@@ -1,18 +1,18 @@
 class Hostvitals < Formula
   desc "Read-only observations of a Mac and its processes for agents"
   homepage "https://github.com/sunfmin/hostvitals"
-  version "0.1.3"
+  version "0.1.4"
   license "MIT"
 
   depends_on :macos
 
   on_arm do
-    url "https://github.com/sunfmin/hostvitals/releases/download/v0.1.3/hostvitals-0.1.3-macos-arm64.tar.gz"
-    sha256 "34bde6befd90163cc65419ec8548e92a4267ba2a47ee6e4d511731a4598e057d"
+    url "https://github.com/sunfmin/hostvitals/releases/download/v0.1.4/hostvitals-0.1.4-macos-arm64.tar.gz"
+    sha256 "7a4e98d29ed75268c3853d4ba67e0ed53166c102f84cf6b4e04048f692ba8601"
   end
   on_intel do
-    url "https://github.com/sunfmin/hostvitals/releases/download/v0.1.3/hostvitals-0.1.3-macos-x86_64.tar.gz"
-    sha256 "2a1a87377a11eb267095141919955f7741dc1f2606367173b99dfc0ca6a32543"
+    url "https://github.com/sunfmin/hostvitals/releases/download/v0.1.4/hostvitals-0.1.4-macos-x86_64.tar.gz"
+    sha256 "8c641f25af72f409727109263781916170cf1c155accf1d2b27460e0196826a8"
   end
 
   def install
