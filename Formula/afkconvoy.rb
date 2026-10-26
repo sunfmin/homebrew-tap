@@ -1,19 +1,19 @@
 class Afkconvoy < Formula
   desc "Fleet of AFK coding agents that works a GitHub backlog"
   homepage "https://github.com/sunfmin/afkconvoy"
-  version "0.5.20"
+  version "0.5.21"
 
   depends_on "gh"
   depends_on "git"
   depends_on :macos
 
   on_arm do
-    url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.5.20/afkconvoy-0.5.20-macos-arm64.tar.gz"
-    sha256 "4a5b9049586a9589eec890fffc32d3ee261c723210f46662967bcbbd87ba1f4e"
+    url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.5.21/afkconvoy-0.5.21-macos-arm64.tar.gz"
+    sha256 "1e21de8cc1879cf439efe898f80a7a337fc73d18f4ae4cd167843bb48aa1a50d"
   end
   on_intel do
-    url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.5.20/afkconvoy-0.5.20-macos-x86_64.tar.gz"
-    sha256 "eacf2b14eb3b74f2d91fe5dd439ca0e2ce5c964d56a1d5f47707b07802b74431"
+    url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.5.21/afkconvoy-0.5.21-macos-x86_64.tar.gz"
+    sha256 "294fdcf5e1b15284de81dc9bbfddfc4fa2607f77ef8005be76ac1a7f2b487bbf"
   end
 
   def install
