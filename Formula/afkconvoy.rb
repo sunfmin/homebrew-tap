@@ -9,11 +9,11 @@ class Afkconvoy < Formula
 
   on_arm do
     url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.5.44/afkconvoy-0.5.44-macos-arm64.tar.gz"
-    sha256 "5cf8c7ee3b88ff279e5ffaecd43a455e2afffef070ea3164e548d46b5584e9c3"
+    sha256 "fead1ce42650e0c6aeb78d5360de48f12834d276baca8ed00a69f3f967c78022"
   end
   on_intel do
     url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.5.44/afkconvoy-0.5.44-macos-x86_64.tar.gz"
-    sha256 "0a4362443a3c5f329f2b4934077dda9cf984d94f14549ebac6cedd1eba457d10"
+    sha256 "5b9303336c5905e4e9d5cac8237709eca92b66babcbe48329467553098a557cb"
   end
 
   def install
