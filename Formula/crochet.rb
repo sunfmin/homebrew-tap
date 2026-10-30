@@ -1,18 +1,18 @@
 class Crochet < Formula
   desc "Crochet patterns as text: compiled, checked, and every chart derived from them"
   homepage "https://github.com/sunfmin/crochet"
-  version "0.1.3"
+  version "0.1.4"
 
   depends_on :macos
   depends_on "ffmpeg"
 
   on_arm do
-    url "https://github.com/sunfmin/homebrew-tap/releases/download/crochet-v0.1.3/crochet-0.1.3-macos-arm64.tar.gz"
-    sha256 "06a99083d05ec19eb553abc86c4e504e6e7854f5358ac22b5f6fa1ab99e8c43a"
+    url "https://github.com/sunfmin/homebrew-tap/releases/download/crochet-v0.1.4/crochet-0.1.4-macos-arm64.tar.gz"
+    sha256 "79d3bc3ddcc668f642298c839a1910b68e952a06d4efb44550b15f5a88862b4d"
   end
   on_intel do
-    url "https://github.com/sunfmin/homebrew-tap/releases/download/crochet-v0.1.3/crochet-0.1.3-macos-x86_64.tar.gz"
-    sha256 "8ecde4f95030e4e229c673263a22cbea1151c0c32211ded8f7667a7adb97fb7b"
+    url "https://github.com/sunfmin/homebrew-tap/releases/download/crochet-v0.1.4/crochet-0.1.4-macos-x86_64.tar.gz"
+    sha256 "4f247422d5682be8778fd18c3af8e38da8be78bdd6068f57b9a39f7c274de4a2"
   end
 
   def install
@@ -21,6 +21,9 @@ class Crochet < Formula
 
   def caveats
     <<~EOS
+      The crochet app, for people, is the cask crochet-app, of the same version:
+        brew install --cask --appdir=~/Applications sunfmin/tap/crochet-app
+
       `crochet photo` renders through Blender, which Homebrew installs as a cask:
         brew install --cask --appdir=~/Applications blender
     EOS
