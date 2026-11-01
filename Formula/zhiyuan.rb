@@ -6,22 +6,22 @@ class Zhiyuan < Formula
   on_macos do
     on_arm do
       url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.2/zhiyuan-0.1.2-macos-arm64.tar.gz"
-      sha256 "792e6a0b363f36d558bbdde4ea5f2228a162ce26a55aa567d661124d1c92d593"
+      sha256 "2959ddedeac3f5575caba72db0c482793f6090b3ee30b23bd15bba6161a9c1e7"
     end
     on_intel do
       url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.2/zhiyuan-0.1.2-macos-x86_64.tar.gz"
-      sha256 "6644f14110b68e2eb0bfb48cf628ac6890217522c0adbb0819707f0e8688c59c"
+      sha256 "d9ae09df043de0e4684b836a607c22b5b697334f0625f50d1e4683b77c55b9d7"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.2/zhiyuan-0.1.2-linux-arm64.tar.gz"
-      sha256 "6e2775dab7ab8413f37bfe51a1fa5e610542a77da3ad3a149bdfcc5604edbac7"
+      sha256 "f0b2e3889a1a865bd705656e1499ff55dd3269e832d309177602b313b526aba1"
     end
     on_intel do
       url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.2/zhiyuan-0.1.2-linux-x86_64.tar.gz"
-      sha256 "e3240a9c67b8df01c1fb995d9a482956ced35a9ed1733a6ef148dc971e89e9b6"
+      sha256 "4dc37734ce4e5dfcaf4e2d85a5dc283a5d7dcdcbdc0c34cbc894ed67d017c9e6"
     end
   end
 
