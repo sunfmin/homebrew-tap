@@ -1,27 +1,27 @@
 class Zhiyuan < Formula
   desc "查已授权的高考志愿数据：省份，以及分数和位次的互换"
   homepage "https://zhiyuanwiki.com"
-  version "0.1.6"
+  version "0.1.7"
 
   on_macos do
     on_arm do
-      url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.6/zhiyuan-0.1.6-macos-arm64.tar.gz"
-      sha256 "f7301558f114f23b809e4a46072db1a6d017c07df3af4aafed80f27c62d5e5cb"
+      url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.7/zhiyuan-0.1.7-macos-arm64.tar.gz"
+      sha256 "43ddd1c141bd0ec7ea7188cef1685e0d832dd0a28a41459336f7e42026124f9f"
     end
     on_intel do
-      url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.6/zhiyuan-0.1.6-macos-x86_64.tar.gz"
-      sha256 "aa360034cb515691b596b3c15ada9add58519029daa3ec8d2b5d55efeda39b0b"
+      url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.7/zhiyuan-0.1.7-macos-x86_64.tar.gz"
+      sha256 "eb23654a8622aa71a142b35e5f024b3b70c323355cc357e2849875f57aae80ac"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.6/zhiyuan-0.1.6-linux-arm64.tar.gz"
-      sha256 "3af62a05cdeb94e31fb89a4c32942e8a6fdb24d2fa663d8443c4dfe7d896b98e"
+      url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.7/zhiyuan-0.1.7-linux-arm64.tar.gz"
+      sha256 "61d3e8b3a20b112e2e8475af7ba52bc77159782a852c99b041188d3633157c01"
     end
     on_intel do
-      url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.6/zhiyuan-0.1.6-linux-x86_64.tar.gz"
-      sha256 "6adca3c00a492e88fbaca3c5c4407c70f11811f231cfdc3b0d50470fd469103a"
+      url "https://github.com/sunfmin/zhiyuanwiki-releases/releases/download/v0.1.7/zhiyuan-0.1.7-linux-x86_64.tar.gz"
+      sha256 "b790b19cc946c27ad801c97bf4fb87188b6ee705e7cbf89d8ea57114a5591008"
     end
   end
 
