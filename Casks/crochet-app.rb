@@ -1,6 +1,6 @@
 cask "crochet-app" do
-  version "0.1.4"
-  sha256 "a49337ee3f2e95a4e0ad7b7f389a605da92be41dfb5337dce6013ae25256a3fa"
+  version "0.1.5"
+  sha256 "b61e7327940270534055e1f87418433dfc8e0c68a4dbaeb5a31445842a740d53"
 
   url "https://github.com/sunfmin/homebrew-tap/releases/download/crochet-v#{version}/crochet-app-#{version}-macos.zip"
   name "crochet"
