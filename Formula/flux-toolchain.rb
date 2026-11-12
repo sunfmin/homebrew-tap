@@ -4,7 +4,7 @@ class FluxToolchain < Formula
   homepage "https://github.com/sunfmin/flux-toolchain"
   url "https://github.com/sunfmin/flux-toolchain/releases/download/2026.11.12/flux-toolchain-2026.11.12-macos-arm64.tar.gz"
   version "2026.11.12"
-  sha256 "b368fcad41abbb642943a0d0d368aa9abdeebf1d71c885c6bbc39be8c6b83482"
+  sha256 "e63192182203ba167b2ceb0d146fc20b8cc725dbb8977ed09b0435319be7aa0c"
   license all_of: ["MIT", "BSD-3-Clause"]
 
   depends_on arch: :arm64
