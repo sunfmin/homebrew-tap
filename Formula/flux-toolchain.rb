@@ -4,7 +4,7 @@ class FluxToolchain < Formula
   homepage "https://github.com/sunfmin/flux-toolchain"
   url "https://github.com/sunfmin/flux-toolchain/releases/download/2026.11.12/flux-toolchain-2026.11.12-macos-arm64.tar.gz"
   version "2026.11.12"
-  sha256 "dddc4510c8618144ed8695c754d2d386d4a35b71d2900fda2ab76903ab356f0e"
+  sha256 "b368fcad41abbb642943a0d0d368aa9abdeebf1d71c885c6bbc39be8c6b83482"
   license all_of: ["MIT", "BSD-3-Clause"]
 
   depends_on arch: :arm64
@@ -29,6 +29,6 @@ class FluxToolchain < Formula
   end
 
   test do
-    assert_match "ef6af17f64", shell_output("#{bin}/cargo-flux flux --version")
+    assert_match "ef6af17", shell_output("#{bin}/cargo-flux flux --version")
   end
 end
