@@ -1,17 +1,17 @@
 class Afkconvoy < Formula
   desc "Fleet of AFK coding agents that works a GitHub backlog"
   homepage "https://github.com/sunfmin/afkconvoy"
-  version "0.5.73"
+  version "0.5.75"
 
   depends_on :macos
 
   on_arm do
-    url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.5.73/afkconvoy-0.5.73-macos-arm64.tar.gz"
-    sha256 "180754beed123ee7addf59fd99b862cc06c4bed60b93eafa05602a05e54d8f53"
+    url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.5.75/afkconvoy-0.5.75-macos-arm64.tar.gz"
+    sha256 "d12c2f7e4f8a5c858a38dc8faa288c659d621ce11aeb10227f6a21626080b67f"
   end
   on_intel do
-    url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.5.73/afkconvoy-0.5.73-macos-x86_64.tar.gz"
-    sha256 "c21d7c4f4852d597cc0c19e6c5be92fd69ab7e569a11749ea9566df67d4545a2"
+    url "https://github.com/sunfmin/homebrew-tap/releases/download/afkconvoy-v0.5.75/afkconvoy-0.5.75-macos-x86_64.tar.gz"
+    sha256 "38c177a58d4724483f2ae077a7b48afd1984cab5f94d4774052434ce5c25880b"
   end
 
   def install
@@ -23,6 +23,8 @@ class Afkconvoy < Formula
       afkconvoy starts its workers through orca. Install it by its tap's
       name (the cask Homebrew itself calls orca is another program):
         brew install --cask stablyai/orca/orca
+      or connect to this host from Orca over SSH: its CLI, at
+      ~/.orca/cli/bin/orca, is found with no orca on PATH.
       Have `git` and `gh` on PATH.
       `gh` must be logged in (`gh auth login`).
     EOS
