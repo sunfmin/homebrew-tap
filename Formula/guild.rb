@@ -1,9 +1,9 @@
 class Guild < Formula
   desc "Guild of specialist agents across several Macs"
   homepage "https://github.com/sunfmin/guild"
-  url "https://github.com/sunfmin/homebrew-tap/releases/download/guild-v0.1.22/guild-0.1.22-macos-arm64.tar.gz"
-  sha256 "8534b038e210240f74bed43665450b72f155a6d46b758ecdba0e617710c539b8"
-  version "0.1.22"
+  url "https://github.com/sunfmin/homebrew-tap/releases/download/guild-v0.1.23/guild-0.1.23-macos-arm64.tar.gz"
+  sha256 "42be8660b5faf371e61c5fec1da18525dfffd22a65bc63cec8146506f3d03f08"
+  version "0.1.23"
 
   depends_on arch: :arm64
   depends_on :macos
