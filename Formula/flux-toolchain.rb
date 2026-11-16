@@ -2,9 +2,9 @@
 class FluxToolchain < Formula
   desc "Flux refinement type checker for Rust, with liquid-fixpoint, z3 and huacnlee/cargo"
   homepage "https://github.com/sunfmin/flux-toolchain"
-  url "https://github.com/sunfmin/flux-toolchain/releases/download/2026.11.15/flux-toolchain-2026.11.15-macos-arm64.tar.gz"
-  version "2026.11.15"
-  sha256 "74a9baa58d51931b33190e3121cf95adf7bd8fc7c22fd0cffb85af9e8254d483"
+  url "https://github.com/sunfmin/flux-toolchain/releases/download/2026.11.16/flux-toolchain-2026.11.16-macos-arm64.tar.gz"
+  version "2026.11.16"
+  sha256 "67fe923b45e46d34b43ff07c9370dbe914fe24ad7a0566f6eb48cb1288ddefab"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0"]
 
   depends_on arch: :arm64
