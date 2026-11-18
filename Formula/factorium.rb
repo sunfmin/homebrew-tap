@@ -1,9 +1,9 @@
 class Factorium < Formula
   desc "Runs AI coding agents on one machine while nobody watches"
   homepage "https://github.com/sunfmin/factorium"
-  url "https://github.com/sunfmin/homebrew-tap/releases/download/factorium-v0.1.18/factorium-0.1.18-macos-arm64.tar.gz"
-  sha256 "0d843f8dfa811b153873ae0f97d48f053a3fdd35fb9ab4abf366feadd1b2c920"
-  version "0.1.18"
+  url "https://github.com/sunfmin/homebrew-tap/releases/download/factorium-v0.1.19/factorium-0.1.19-macos-arm64.tar.gz"
+  sha256 "70afd993bf2562e727e69281453d9638378e3af22d0bdcf72e85a402a467108d"
+  version "0.1.19"
 
   depends_on :macos
   depends_on arch: :arm64
