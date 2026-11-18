@@ -1,9 +1,9 @@
 class Slimfit < Formula
   desc "Keep a codebase small and its tests few, fast and strong"
   homepage "https://github.com/sunfmin/slimfit"
-  url "https://github.com/sunfmin/homebrew-tap/releases/download/slimfit-v0.1.2/slimfit-0.1.2-macos-arm64.tar.gz"
-  sha256 "8e9fd60fae35fd234890d2200b469995720db2580753f3c65b959f16f4ae1478"
-  version "0.1.2"
+  url "https://github.com/sunfmin/homebrew-tap/releases/download/slimfit-v0.1.3/slimfit-0.1.3-macos-arm64.tar.gz"
+  sha256 "eaaae4330e02653b06878295035e8b4ece1e17f5fe85c736bfc55a8f1bd3b72b"
+  version "0.1.3"
 
   depends_on :macos
   depends_on arch: :arm64
