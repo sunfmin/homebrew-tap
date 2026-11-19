@@ -2,9 +2,9 @@
 class FluxToolchain < Formula
   desc "Flux refinement type checker for Rust, with liquid-fixpoint, z3 and huacnlee/cargo"
   homepage "https://github.com/sunfmin/flux-toolchain"
-  url "https://github.com/sunfmin/flux-toolchain/releases/download/2026.11.18/flux-toolchain-2026.11.18-macos-arm64.tar.gz"
-  version "2026.11.18"
-  sha256 "068bb173e37faab8c04c7ae7b4820f606abf0a3a3f72f37922c39633d589482a"
+  url "https://github.com/sunfmin/flux-toolchain/releases/download/2026.11.19/flux-toolchain-2026.11.19-macos-arm64.tar.gz"
+  version "2026.11.19"
+  sha256 "2ecbcfcef9b48a515135172976ad2015154095d8ffe8d20046442f645452af31"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0"]
 
   depends_on arch: :arm64
@@ -21,14 +21,14 @@ class FluxToolchain < Formula
 
   def caveats
     <<~EOS
-      Flux 42b2480a39 runs on the Rust nightly-2026-10-22 toolchain. Its first run adds
+      Flux 7d9886b363 runs on the Rust nightly-2026-11-12 toolchain. Its first run adds
       that toolchain through rustup (https://rustup.rs), which must be on the PATH.
       Depend on the flux-rs crate at the same commit:
-        flux-rs = { git = "https://github.com/flux-rs/flux.git", rev = "42b2480a39e84de21fd4405d2fd1518bec7b5816" }
+        flux-rs = { git = "https://github.com/flux-rs/flux.git", rev = "7d9886b36347e9e245fa8b354da7fb9662a2087c" }
     EOS
   end
 
   test do
-    assert_match "42b2480", shell_output("#{bin}/cargo-flux flux --version")
+    assert_match "7d9886b", shell_output("#{bin}/cargo-flux flux --version")
   end
 end
