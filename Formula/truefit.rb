@@ -2,12 +2,11 @@ class Truefit < Formula
   desc "Keeps a system's tests and models true to the real system"
   homepage "https://github.com/sunfmin/truefit"
   license "MIT"
-  url "https://github.com/sunfmin/homebrew-tap/releases/download/truefit-v0.1.5/truefit-0.1.5-macos-arm64.tar.gz"
-  sha256 "9e423c936b454e9c76ccf5f923b2ef823bcf312c50b882723a88d636d366b506"
-  version "0.1.5"
+  url "https://github.com/sunfmin/homebrew-tap/releases/download/truefit-v0.1.6/truefit-0.1.6-macos-universal.tar.gz"
+  sha256 "430c7d9f0fa1f92c4b2b8fa1256a40c8297ba74982b225045ad41a470ccbdf25"
+  version "0.1.6"
 
   depends_on :macos
-  depends_on arch: :arm64
 
   def install
     bin.install "truefit"
