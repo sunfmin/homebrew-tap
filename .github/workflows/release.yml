@@ -1,0 +1,185 @@
+# One version of a tool, built, Developer ID-signed, notarized and published
+# (README.md here is the contract). A tool's cut runs it:
+#   gh workflow run release.yml -R sunfmin/homebrew-tap -f repo=<repo> -f tag=<vX.Y.Z>
+# It checks out sunfmin/<repo> at the tag, runs its
+# `packaging/release.sh build <tag> <outdir>`, signs every Mach-O file the
+# build left with the Developer ID identity (hardened runtime, secure
+# timestamp), notarizes them, verifies, packages
+# <repo>-<X.Y.Z>-macos-universal.tar.gz, and publishes it as this tap's
+# release <repo>-v<X.Y.Z> with Formula/<repo>.rb.
+#
+# This is the one place that signs, and these are the only copies of the
+# signing secrets: DEVELOPER_ID_P12_BASE64 / DEVELOPER_ID_P12_PASSWORD (the
+# identity, imported into a keychain of its own under the runner's temp dir)
+# and ASC_KEY_ID / ASC_ISSUER_ID / ASC_KEY_P8_BASE64 (the App Store Connect
+# key notarytool uses, its .p8 written mode 600 under the runner's temp dir).
+# Each goes only to the step that uses it; both are removed in an
+# `if: always()` step. Nothing prints them; GitHub masks them in logs.
+name: release
+run-name: ${{ inputs.repo }} ${{ inputs.tag }}
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: The tool, a public repo sunfmin/<repo> with packaging/release.sh build
+        required: true
+        type: string
+      tag:
+        description: Its version tag, vX.Y.Z, on origin
+        required: true
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: release-${{ inputs.repo }}
+  cancel-in-progress: false
+env:
+  REPO: ${{ inputs.repo }}
+  TAG: ${{ inputs.tag }}
+  IDENTITY: 'Developer ID Application: FENGMIN SUN (HL27PWAKDF)'
+jobs:
+  release:
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - name: The inputs are a repo name and a version tag
+        run: |
+          printf '%s' "$REPO" | grep -Eqx '[a-z0-9][a-z0-9-]*' || { echo "::error::repo '$REPO' is not a repo name"; exit 1; }
+          printf '%s' "$TAG" | grep -Eqx 'v[0-9]+\.[0-9]+\.[0-9]+' || { echo "::error::tag '$TAG' is not vX.Y.Z"; exit 1; }
+          echo "VERSION=${TAG#v}" >>"$GITHUB_ENV"
+          echo "OUT=$RUNNER_TEMP/out" >>"$GITHUB_ENV"
+      - name: Check out the tap
+        uses: actions/checkout@v4
+        with:
+          path: tap
+      - name: Check out the tool at its tag
+        uses: actions/checkout@v4
+        with:
+          repository: sunfmin/${{ inputs.repo }}
+          ref: refs/tags/${{ inputs.tag }}
+          path: tool
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Build (the tool's packaging/release.sh build)
+        working-directory: tool
+        run: |
+          s=$(date +%s)
+          packaging/release.sh build "$TAG" "$OUT"
+          test -f "$OUT/$REPO.rb" || { echo "::error::the build left no $REPO.rb"; exit 1; }
+          echo "build: $(( $(date +%s) - s ))s"
+      - name: Import the Developer ID identity
+        env:
+          DEVELOPER_ID_P12_BASE64: ${{ secrets.DEVELOPER_ID_P12_BASE64 }}
+          DEVELOPER_ID_P12_PASSWORD: ${{ secrets.DEVELOPER_ID_P12_PASSWORD }}
+        run: |
+          umask 077
+          dir=$RUNNER_TEMP/signing
+          mkdir -p "$dir"
+          kc=$dir/signing.keychain-db
+          pw=$(openssl rand -hex 24)
+          printf '%s' "$DEVELOPER_ID_P12_BASE64" | base64 -d >"$dir/identity.p12"
+          security create-keychain -p "$pw" "$kc"
+          security set-keychain-settings -lut 21600 "$kc"
+          security unlock-keychain -p "$pw" "$kc"
+          security import "$dir/identity.p12" -k "$kc" -f pkcs12 -P "$DEVELOPER_ID_P12_PASSWORD" \
+            -T /usr/bin/codesign >/dev/null
+          rm -f "$dir/identity.p12"
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$pw" "$kc" >/dev/null
+          eval "security list-keychains -d user -s \"\$kc\" $(security list-keychains -d user | tr '\n' ' ')"
+          security find-identity -v -p codesigning "$kc" | grep -qF "\"$IDENTITY\"" \
+            || { echo "::error::no '$IDENTITY' identity in the .p12"; exit 1; }
+          echo "KEYCHAIN=$kc" >>"$GITHUB_ENV"
+          echo "the identity is in $kc"
+      - name: Sign
+        run: |
+          : >"$RUNNER_TEMP/signed"
+          for f in "$OUT"/*; do
+            [ "$f" != "$OUT/$REPO.rb" ] && file -b "$f" | grep -q Mach-O || continue
+            codesign --force --sign "$IDENTITY" --keychain "$KEYCHAIN" --options runtime --timestamp "$f"
+            echo "$f" >>"$RUNNER_TEMP/signed"
+          done
+          [ -s "$RUNNER_TEMP/signed" ] || { echo "::error::the build left no Mach-O file to sign"; exit 1; }
+          cat "$RUNNER_TEMP/signed"
+      - name: Notarize
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8_BASE64: ${{ secrets.ASC_KEY_P8_BASE64 }}
+        run: |
+          s=$(date +%s)
+          umask 077
+          mkdir -p "$RUNNER_TEMP/notary"
+          key=$RUNNER_TEMP/notary/key.p8
+          printf '%s' "$ASC_KEY_P8_BASE64" | base64 -d >"$key"
+          chmod 600 "$key"
+          zip=$RUNNER_TEMP/notary/$REPO.zip
+          # shellcheck disable=SC2046 # the signed files are names without spaces
+          (cd "$OUT" && zip -q "$zip" $(xargs -n1 basename <"$RUNNER_TEMP/signed"))
+          xcrun notarytool submit "$zip" --key "$key" --key-id "$ASC_KEY_ID" --issuer "$ASC_ISSUER_ID" \
+            --wait --timeout 30m --output-format json >"$RUNNER_TEMP/notary.json" || true
+          rm -f "$key"
+          id=$(jq -r '.id // empty' "$RUNNER_TEMP/notary.json")
+          status=$(jq -r '.status // empty' "$RUNNER_TEMP/notary.json")
+          echo "notary: submission $id is '$status' ($(( $(date +%s) - s ))s)"
+          echo "NOTARY_STATUS=$status" >>"$GITHUB_ENV"
+          [ "$status" = Accepted ] || { cat "$RUNNER_TEMP/notary.json"; echo "::error::notarization is '$status', not Accepted"; exit 1; }
+      - name: Verify
+        run: |
+          [ "$NOTARY_STATUS" = Accepted ]
+          while read -r f; do
+            archs=$(lipo -archs "$f")
+            [ "$archs" = "x86_64 arm64" ] || { echo "::error::$f holds '$archs', not 'x86_64 arm64'"; exit 1; }
+            codesign --verify --strict --verbose=2 "$f"
+            d=$(codesign -dv --verbose=2 "$f" 2>&1)
+            printf '%s\n' "$d" | grep -E '^(Identifier|Format|CodeDirectory|Authority|Timestamp|TeamIdentifier)'
+            printf '%s\n' "$d" | grep -qxF "Authority=$IDENTITY" || { echo "::error::$f is not signed by $IDENTITY"; exit 1; }
+            printf '%s\n' "$d" | grep -q 'flags=0x10000(runtime)' || { echo "::error::$f has no hardened runtime"; exit 1; }
+          done <"$RUNNER_TEMP/signed"
+      - name: Remove the key and the identity
+        if: always()
+        run: |
+          kc=$RUNNER_TEMP/signing/signing.keychain-db
+          [ -e "$kc" ] && security delete-keychain "$kc" 2>/dev/null || true
+          eval "security list-keychains -d user -s $(security list-keychains -d user | grep -vF "$kc" | tr '\n' ' ')"
+          rm -rf "$RUNNER_TEMP/signing" "$RUNNER_TEMP/notary"
+          [ ! -e "$kc" ] && ! security list-keychains -d user | grep -qF "$kc" && echo "the keychain and the key are gone"
+      - name: Publish the release and the formula
+        working-directory: tap
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          release=$REPO-v$VERSION
+          archive=$REPO-$VERSION-macos-universal.tar.gz
+          # shellcheck disable=SC2046 # the signed files are paths without spaces
+          tar -czf "$RUNNER_TEMP/$archive" -C "$OUT" $(xargs -n1 basename <"$RUNNER_TEMP/signed")
+          sha=$(shasum -a 256 "$RUNNER_TEMP/$archive" | cut -d' ' -f1)
+          url=https://github.com/$GITHUB_REPOSITORY/releases/download/$release/$archive
+          formula=Formula/$REPO.rb
+          sed -e "s|@URL@|$url|" -e "s|@SHA256@|$sha|" "$OUT/$REPO.rb" >"$formula"
+          ! grep -n '@URL@\|@SHA256@' "$formula" || { echo "::error::$formula still holds a placeholder"; exit 1; }
+          grep -qF "\"$sha\"" "$formula" && grep -qF "\"$url\"" "$formula" \
+            || { echo "::error::$OUT/$REPO.rb has no url \"@URL@\" and sha256 \"@SHA256@\""; exit 1; }
+          ruby -c "$formula" >/dev/null
+          if gh release view "$release" >/dev/null 2>&1; then
+            gh release upload "$release" --clobber "$RUNNER_TEMP/$archive"
+          else
+            gh release create "$release" --title "$REPO $VERSION" \
+              --notes "The binary the formula \`$REPO\` installs: universal, Developer ID signed, notarized." \
+              "$RUNNER_TEMP/$archive"
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$formula"
+          if git diff --cached --quiet; then
+            echo "the tap's formula is $REPO $VERSION already"
+            exit 0
+          fi
+          git commit --quiet -m "$REPO $VERSION"
+          # Another tool's run may have pushed meanwhile.
+          for i in 1 2 3 4 5; do
+            git push --quiet origin HEAD:main && { echo "published $release, $formula"; exit 0; }
+            sleep $((i * 3))
+            git pull --quiet --rebase origin main
+          done
+          echo "::error::could not push $formula"
+          exit 1
