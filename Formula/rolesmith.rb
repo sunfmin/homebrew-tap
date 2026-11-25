@@ -1,9 +1,9 @@
 class Rolesmith < Formula
   desc "Roles for any coding agent"
   homepage "https://github.com/sunfmin/rolesmith"
-  url "https://github.com/sunfmin/homebrew-tap/releases/download/rolesmith-v0.1.14/rolesmith-0.1.14-macos-universal.tar.gz"
-  sha256 "8ecde256cb260200350df5d3c243694ba22c359b0eecd40c4047a1c5bcec08be"
-  version "0.1.14"
+  url "https://github.com/sunfmin/homebrew-tap/releases/download/rolesmith-v0.1.15/rolesmith-0.1.15-macos-universal.tar.gz"
+  sha256 "ceab9e5e5a7deb246df599448feccd4935675f9a5571efbc314ffa225ce4eb31"
+  version "0.1.15"
   license "MIT"
 
   depends_on :macos
