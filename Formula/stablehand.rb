@@ -1,9 +1,9 @@
 class Stablehand < Formula
   desc "One home for agent engine accounts: their logins and usage windows"
   homepage "https://github.com/sunfmin/stablehand"
-  url "https://github.com/sunfmin/homebrew-tap/releases/download/stablehand-v0.1.12/stablehand-0.1.12-macos-universal.tar.gz"
-  sha256 "61adea0717aee92183784b9deb3000360f97155b71b701696087c5028eaa9dc0"
-  version "0.1.12"
+  url "https://github.com/sunfmin/homebrew-tap/releases/download/stablehand-v0.1.13/stablehand-0.1.13-macos-universal.tar.gz"
+  sha256 "5655db57f345156912ea13ea96fa3bc138e70e4037f38514883f182dcc810548"
+  version "0.1.13"
 
   depends_on :macos
 
