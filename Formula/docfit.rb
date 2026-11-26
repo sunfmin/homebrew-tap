@@ -1,9 +1,9 @@
 class Docfit < Formula
   desc "Keeps a repo's documents each in its one home, within its budget"
   homepage "https://github.com/sunfmin/docfit"
-  url "https://github.com/sunfmin/homebrew-tap/releases/download/docfit-v0.1.4/docfit-0.1.4-macos-universal.tar.gz"
-  sha256 "5627c04faeb4f67e05585d28d400dbbbd9a52edac30a00fad2cd9d859e999529"
-  version "0.1.4"
+  url "https://github.com/sunfmin/homebrew-tap/releases/download/docfit-v0.1.5/docfit-0.1.5-macos-universal.tar.gz"
+  sha256 "106c3c659f4bafc4fa04ddd7918788fd99d60a5f6fa509a520aa71b60f2f3f91"
+  version "0.1.5"
 
   depends_on :macos
 
