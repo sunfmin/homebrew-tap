@@ -2,9 +2,9 @@ class Truefit < Formula
   desc "Keeps a system's tests and models true to the real system"
   homepage "https://github.com/sunfmin/truefit"
   license "MIT"
-  url "https://github.com/sunfmin/homebrew-tap/releases/download/truefit-v0.1.18/truefit-0.1.18-macos-universal.tar.gz"
-  sha256 "fb346cadb794f38148c53c5857a4c99ab86a111ea175e74e899365f3f860f266"
-  version "0.1.18"
+  url "https://github.com/sunfmin/homebrew-tap/releases/download/truefit-v0.1.19/truefit-0.1.19-macos-universal.tar.gz"
+  sha256 "87b0559d897d9f532bc222dcb50bbde72b2af4a94edf4c9d425bed11fe7b623c"
+  version "0.1.19"
 
   depends_on :macos
 
