@@ -1,9 +1,9 @@
 class Sesame < Formula
   desc "Sign in to SaaS APIs from the terminal via OAuth and call their REST APIs"
   homepage "https://github.com/sunfmin/sesame"
-  url "https://github.com/sunfmin/homebrew-tap/releases/download/sesame-v0.1.44/sesame-0.1.44-macos-universal.tar.gz"
-  sha256 "9e49f9586f28b18ff35388f92e6b2ab5a72c5f128ceb43c189f71681d0f16bc7"
-  version "0.1.44"
+  url "https://github.com/sunfmin/homebrew-tap/releases/download/sesame-v0.1.45/sesame-0.1.45-macos-universal.tar.gz"
+  sha256 "626f010445ee470c3b99222c8b2990376ba4f9d87e634d3c7870707b4f9cd89e"
+  version "0.1.45"
 
   depends_on :macos
 
