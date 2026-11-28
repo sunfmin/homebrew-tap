@@ -1,26 +1,26 @@
 class Optokens < Formula
   desc "Keeps an agent's secrets in a 1Password vault through a service account"
   homepage "https://github.com/sunfmin/optokens"
-  version "0.1.12"
+  version "0.1.13"
 
   on_macos do
     on_arm do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/optokens-v0.1.12/optokens-0.1.12-macos-arm64.tar.gz"
-      sha256 "e20400a4172da39ef103ef2909737a4a60ff033518c23e777b9a0978f640e733"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/optokens-v0.1.13/optokens-0.1.13-macos-arm64.tar.gz"
+      sha256 "798f28996fa7bf23136005e09f808e603d2bccfcf7765f47c2e5339984261f76"
     end
     on_intel do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/optokens-v0.1.12/optokens-0.1.12-macos-x86_64.tar.gz"
-      sha256 "01e9885fe98c48950229e9ca3b5a1d4698b3817ece647a2abbade9a3b0111267"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/optokens-v0.1.13/optokens-0.1.13-macos-x86_64.tar.gz"
+      sha256 "73b7532b433290bdc34b0b4096bd0ccf2d7d1ca0986a31a8893783f419a54a46"
     end
   end
   on_linux do
     on_arm do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/optokens-v0.1.12/optokens-0.1.12-linux-arm64.tar.gz"
-      sha256 "0a65fcdd91f63175390a20c8392960f2250085c09d4804b21032b6b3a6d0adcc"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/optokens-v0.1.13/optokens-0.1.13-linux-arm64.tar.gz"
+      sha256 "1ef1a810bf28cb7431344762052f5c85a8ec723205aae66469479464b6865926"
     end
     on_intel do
-      url "https://github.com/sunfmin/homebrew-tap/releases/download/optokens-v0.1.12/optokens-0.1.12-linux-x86_64.tar.gz"
-      sha256 "64f9ef88030f9cc3b8e97b6eba0adc4335ca4da96aa2c26ac47a86b6ec89f3d6"
+      url "https://github.com/sunfmin/homebrew-tap/releases/download/optokens-v0.1.13/optokens-0.1.13-linux-x86_64.tar.gz"
+      sha256 "b17348bd0d41466bed7eb38dc8201c8bf90b116e99ee831d115040d7812d3860"
     end
   end
 
